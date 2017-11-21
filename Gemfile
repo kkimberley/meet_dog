@@ -38,7 +38,6 @@ gem 'bootstrap'
 gem 'jquery-rails'
 gem 'carrierwave'
 gem "mini_magick"
-gem 'mini_magick'
 
 
 group :development, :test do
