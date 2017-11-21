@@ -1,0 +1,35 @@
+<style>
+.card-img-left {
+    float: left;
+    padding-right: 1em;
+    padding-bottom: 1em;
+    margin-bottom: -1.25em;
+  }
+
+  .btn-circle {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    padding: 10px 0;
+    line-height: 1.42;
+    border-radius: 35px;
+    margin-top: 20px;  
+  }  
+</style>
+
+<div class="fixed-top" style="margin-top: 60px; margin-left: 70px">
+  <%= link_to '+', new_post_path, class: 'btn btn-outline-info btn-circle' %>
+</div>
+
+<% @posts.each do |p| %>
+    <div class="card w-75 mx-auto border-info" style="margin-top: 20px">
+    <div class="card-header bg-info text-white">Header</div>
+    <div class="card-body">
+        <%= image_tag p.photos.first.avatar.thumb.url, class: 'card-img-left' %>
+    
+        <h4 class="card-title">Card title</h4>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-outline-info">Edit</a>
+    </div>
+    </div>
+<% end %>
