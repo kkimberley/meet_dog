@@ -22,13 +22,13 @@
 </div>
 
 <% @posts.each do |p| %>
-    <div class="card w-75 mx-auto border-info" style="margin-top: 20px">
-    <div class="card-header bg-info text-white">Header</div>
+    <div class="card w-75 mx-auto border-secondary" style="margin-top: 20px">
+    <div class="card-header bg-secondary text-white"><%= p.created_at %></div>
     <div class="card-body">
         <%= image_tag p.photos.first.avatar.thumb.url, class: 'card-img-left' %>
     
         <h4 class="card-title">Card title</h4>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <p class="card-text"><%= p.content %></p>
         <a href="#" class="btn btn-outline-info">Edit</a>
     </div>
     </div>

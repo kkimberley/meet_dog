@@ -3,7 +3,7 @@
     Post article
     </div>
     <div class="card-body">
-        <%= form_for(@post, html: { multipart: true }) do |f| %>
+        <%= form_for(@post, url: '/api/v1/posts', html: { multipart: true }) do |f| %>
             <div class="form-group">
                 <label>Name</label>
                 <div>
