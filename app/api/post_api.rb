@@ -24,5 +24,17 @@ class PostApi < Grape::API
           else
           end
         end
+
+        desc 'Add like number'
+        post ':id/add_like' do
+          post = Post.find_by_id(params[:id])
+          post.increment(:like, by = 1)
+          if post.save
+            post.like
+          else
+            status 400
+            post.errors
+          end
+        end
     end
 end

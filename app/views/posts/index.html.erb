@@ -14,22 +14,38 @@
     line-height: 1.42;
     border-radius: 35px;
     margin-top: 20px;  
-  }  
+  }
+  
+  .box-shadow {
+    box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;    
+  }
 </style>
 
+<script>
+function submit_ajax(object, url) {
+  var url = '/api/v1/posts/'+url+'/add_like';
+    $.ajax(url, {
+      type: "POST",
+      success: function(response) {
+      }
+    });
+}
+</script>
+
 <div class="fixed-top" style="margin-top: 60px; margin-left: 70px">
-  <%= link_to '+', new_post_path, class: 'btn btn-outline-info btn-circle' %>
+  <%= link_to '+', new_post_path, class: 'btn btn-outline-info btn-circle box-shadow' %>
 </div>
 
 <% @posts.each do |p| %>
-    <div class="card w-75 mx-auto border-secondary" style="margin-top: 20px">
-    <div class="card-header bg-secondary text-white"><%= p.created_at %></div>
-    <div class="card-body">
+    <div class="card border-info mb-3 w-75 mx-auto box-shadow" style="margin-top: 20px">
+    <div class="card-header"><%= p.created_at %></div>
+    <div class="card-body text-info">
         <%= image_tag p.photos.first.avatar.thumb.url, class: 'card-img-left' %>
     
         <h4 class="card-title">Card title</h4>
         <p class="card-text"><%= p.content %></p>
-        <i class="icon-heart icons" style="color:red"></i><br>
+        <%= link_to "#{p.like}", '', onclick: "submit_ajax(this, #{p.id})", id: "ajax-like-#{p.id}", style: 'color: red' %>
+          <i class="icon-heart icons" style="color:red"></i>
         <a href="#" class="btn btn-outline-info">Edit</a>
     </div>
     </div>
