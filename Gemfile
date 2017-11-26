@@ -39,6 +39,7 @@ gem 'jquery-rails'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'grape'
+gem 'fog'
 
 # small icon
 gem 'simple-line-icons-rails'
