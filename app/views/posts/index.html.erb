@@ -38,15 +38,36 @@ function submit_ajax(object, url) {
 
 <% @posts.each do |p| %>
     <div class="card border-info mb-3 w-75 mx-auto box-shadow" style="margin-top: 20px">
-    <div class="card-header"><%= p.created_at %></div>
-    <div class="card-body text-info">
-        <%= image_tag p.photos.first.avatar.thumb.url, class: 'card-img-left' %>
-    
-        <h4 class="card-title">Card title</h4>
-        <p class="card-text"><%= p.content %></p>
-        <%= link_to "#{p.like}", '', onclick: "submit_ajax(this, #{p.id})", id: "ajax-like-#{p.id}", style: 'color: red' %>
-          <i class="icon-heart icons" style="color:red"></i>
-        <a href="#" class="btn btn-outline-info">Edit</a>
-    </div>
+      <div class="card-header"><%= p.created_at %></div>
+      <div class="card-body text-info">
+          <%= image_tag p.photos.first.avatar.thumb.url, class: 'card-img-left' %>
+      
+          <h4 class="card-title">Card title</h4>
+          <p class="card-text"><%= p.content %></p>
+          <%= link_to "#{p.like}", '', onclick: "submit_ajax(this, #{p.id})", id: "ajax-like-#{p.id}", style: 'color: red' %>
+          <i class="icon-heart icons" style="color:red"></i>      
+      </div>
+
+      <div class="card-footer text-muted">
+        <%= form_with(model: [ p, p.comments.build ]) do |form| %>
+          <div class="input-group">
+            <%= form.text_field :content, class: 'form-control col col-lg-4', placeholder: 'Comment...' %>
+            <span class="input-group-btn">
+            <%= button_tag(type: 'submit', class: "btn btn-info") do %>
+              <i class="icon-bubbles icons"></i>
+             <% end %>
+            </span>
+          </div>
+        <% end %>
+
+        <% p.comments.each do |c| %>
+          <div class="form-group">
+            <div>
+              <%= c.content %>
+            </div>
+          </div>
+        <% end %>         
+      </div>
+
     </div>
 <% end %>
