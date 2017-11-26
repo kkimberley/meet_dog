@@ -1,0 +1,37 @@
+<div class="card mx-auto" style="max-width: 35rem; margin-top: 30px">
+    <div class="card-header">
+    Post article
+    </div>
+    <div class="card-body">
+        <%= form_for(@post, url: '/api/v1/posts', html: { multipart: true }) do |f| %>
+            <div class="form-group">
+                <label>Name</label>
+                <div>
+                    <%= f.text_field(:name,  { autofocus: true, class: 'form-control', placeholder: 'Name'}) %>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Content</label>
+                <div>
+                    <%= f.text_area(:content,  { autofocus: true, class: 'form-control'}) %>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Picture</label>
+                <div>
+                    <%= f.fields_for :photos do |p| %>
+                        <div class='field'>
+                            <%= p.file_field :avatar, multiple: true, name: "photos[avatar][]" %>
+                        </div>
+                    <% end %>                    
+                </div>
+            </div>
+        
+            <div class='actions'>
+            <%= f.submit 'Submit' %>
+            </div>                
+        <% end %>
+    </div>
+</div>
