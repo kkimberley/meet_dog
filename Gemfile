@@ -40,7 +40,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'grape'
 gem 'fog'
-
+gem 'fog-aws'
 # small icon
 gem 'simple-line-icons-rails'
 
