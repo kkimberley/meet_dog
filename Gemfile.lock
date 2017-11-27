@@ -449,6 +449,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   fog
+  fog-aws
   grape
   jbuilder (~> 2.5)
   jquery-rails
