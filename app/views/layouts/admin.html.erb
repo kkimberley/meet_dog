@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MeetDog</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <%= render "shared/nav" %>
+  <body>
+    <div class="row no-gutters" style="margin-top:100px">
+      <div class="col-12 col-sm-6 col-md-4">
+        <div class="container"">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <%= link_to 'Add Dog', admin_dogs_index_path, class: 'nav-link' %>        
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Feature 1</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Feature 2</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#">Feature 3</a>
+            </li>
+          </ul>  
+        </div>      
+      
+      </div>
+      <div class="col-6 col-md-8"><%= yield %></div>
+    </div>
+  </body>
+</html>
