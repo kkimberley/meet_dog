@@ -7,11 +7,11 @@
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 
-role :app, %w{ubuntu@18.221.227.182}
-role :web, %w{ubuntu@18.221.227.182}
-role :db,  %w{ubuntu@18.221.227.182}
+role :app, %w{ubuntu@13.58.129.167}
+role :web, %w{ubuntu@13.58.129.167}
+role :db,  %w{ubuntu@13.58.129.167}
 
-# role-based syntax
+# role-based syntax 
 # ==================
 
 # Defines a role with one or multiple servers. The primary server in each
